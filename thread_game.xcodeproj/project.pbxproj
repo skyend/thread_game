@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B7E08771EA3A8F900B833B2 /* visible.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E08751EA3A8F900B833B2 /* visible.cpp */; };
 		8BB9B2551EA1E78700C0E7E9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9B2541EA1E78700C0E7E9 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B7E08751EA3A8F900B833B2 /* visible.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visible.cpp; sourceTree = "<group>"; };
+		8B7E08761EA3A8F900B833B2 /* visible.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = visible.hpp; sourceTree = "<group>"; };
+		8B7E08781EA3A93800B833B2 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		8B7E08791EA3ADFC00B833B2 /* canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
 		8BB9B2511EA1E78700C0E7E9 /* thread_game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = thread_game; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB9B2541EA1E78700C0E7E9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B7E08741EA3A8CD00B833B2 /* visible */ = {
+			isa = PBXGroup;
+			children = (
+				8B7E08751EA3A8F900B833B2 /* visible.cpp */,
+				8B7E08761EA3A8F900B833B2 /* visible.hpp */,
+			);
+			path = visible;
+			sourceTree = "<group>";
+		};
 		8BB9B2481EA1E78700C0E7E9 = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +71,10 @@
 		8BB9B2531EA1E78700C0E7E9 /* thread_game */ = {
 			isa = PBXGroup;
 			children = (
+				8B7E08741EA3A8CD00B833B2 /* visible */,
 				8BB9B2541EA1E78700C0E7E9 /* main.cpp */,
+				8B7E08781EA3A93800B833B2 /* config.h */,
+				8B7E08791EA3ADFC00B833B2 /* canvas.h */,
 			);
 			path = thread_game;
 			sourceTree = "<group>";
@@ -119,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7E08771EA3A8F900B833B2 /* visible.cpp in Sources */,
 				8BB9B2551EA1E78700C0E7E9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +188,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lncurses";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -211,6 +230,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lncurses";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -248,6 +268,7 @@
 				8BB9B25A1EA1E78700C0E7E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
