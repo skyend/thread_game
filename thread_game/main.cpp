@@ -113,14 +113,21 @@ void drawThread(Canvas * canvas){
 }
 
 void tickThread(){
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    std::chrono::duration<double> elapsed_sec;
     
     while(FOREVER){
         std::unique_lock<std::mutex> lck{mapMutex};
+        start = std::chrono::system_clock::now();
+        
         
         for( auto v : visibleList ){
-            v->tick(0,0);
+            v->tick(0,elapsed_sec.count());
         }
         
+        
+        elapsed_sec = start - end;
+        end = std::chrono::system_clock::now();
         lck.unlock();
         usleep(DELAY);
         

@@ -33,8 +33,8 @@ public:
     
     void operator()(int x, int y, char c, long colorCode = 0){
         // x 또는 y 가 넓이, 높이를 초과하면 그리지 않는다.
-        if( x < width && y < height ){
-            int spreadedCoordination = y * height + x;
+        if( x < width && y < height && x >= 0 && y >= 0 ){
+            int spreadedCoordination = y * width + x;
         
             (map[spreadedCoordination])->character = c;
         }

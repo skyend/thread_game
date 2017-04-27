@@ -14,8 +14,8 @@
 #define FPS 120
 #define DELAY double((1000 * 1000) / FPS)
 
-constexpr unsigned int screenWidth = 80;
-constexpr unsigned int screenHeight = 24;
+constexpr unsigned int screenWidth = 124;
+constexpr unsigned int screenHeight = 64;
 
 
 #endif /* config_h */
