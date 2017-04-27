@@ -52,7 +52,8 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       consoleMode = "1">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BB9B2501EA1E78700C0E7E9"
@@ -60,7 +61,7 @@
             BlueprintName = "thread_game"
             ReferencedContainer = "container:thread_game.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -69,7 +69,7 @@ void drawThread(Canvas * canvas){
     std::chrono::time_point<std::chrono::system_clock> start, end;
     std::chrono::duration<double> elapsed_sec;
     while(FOREVER){
-        
+        std::vector<char> charVec;
         
         std::unique_lock<std::mutex> lck{mapMutex};
         
@@ -84,13 +84,15 @@ void drawThread(Canvas * canvas){
         
         int dotCount = 0;
         // rendering
-        for( int i = 0; i < canvas->width ; i++ ){
-            for( int j = 0; j < canvas->height; j++ ){
-                Pixel px = *( canvas->map + ( canvas->height * j ) + i);
+        for( int y = 0; y < canvas->height ; y++ ){
+            for( int x = 0; x < canvas->width; x++ ){
                 
-                mvprintw(j, i, &px.character);
+                int index = ( canvas->width * y ) + x;
+                Pixel *px = canvas->map[index];
                 
-                if( px.character != ' '){
+                mvprintw(y, x, &px->character);
+                
+                if( px->character == 'c'){
                     dotCount ++;
                 }
             }

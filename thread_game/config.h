@@ -11,8 +11,8 @@
 
 
 #define FOREVER true
-// 120 FPS
-#define DELAY double((1000 * 1000) / 120)
+#define FPS 120
+#define DELAY double((1000 * 1000) / FPS)
 
 constexpr unsigned int screenWidth = 80;
 constexpr unsigned int screenHeight = 24;

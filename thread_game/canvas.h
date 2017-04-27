@@ -21,10 +21,14 @@ public:
     int width;
     int height;
     
-    Pixel *map;
+    Pixel **map;
     
     Canvas(int screenWidth,int screenHeight):width(screenWidth), height(screenHeight) {
-        map = (Pixel*)malloc( sizeof(Pixel) * width * height );
+        map = (Pixel**)malloc( sizeof(Pixel*) * width * height );
+        
+        for(int i = 0; i < width*height; i++ ){
+            (*(map + i)) = new Pixel{.character = '\0'};
+        }
     };
     
     void operator()(int x, int y, char c, long colorCode = 0){
@@ -32,17 +36,21 @@ public:
         if( x < width && y < height ){
             int spreadedCoordination = y * height + x;
         
-            *(map + spreadedCoordination) = Pixel{.character = c};
+            (map[spreadedCoordination])->character = c;
         }
     };
     
     void clear(){
         for(int i = 0; i < width*height; i++ ){
-            (*(map + i)).character = ' ';
+            (*(map + i))->character = ' ';
         }
     }
     
     ~Canvas(){
+        for(int i = 0; i < width*height; i++ ){
+            free(*(map + i));
+        }
+        
         free(map);
     }
 };
